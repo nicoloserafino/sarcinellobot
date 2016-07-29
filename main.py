@@ -216,7 +216,7 @@ class WebhookHandler(webapp2.RequestHandler):
 				if ('nico' in text.lower().split() or 'quaranta' in text.lower().split() or '40' in text.split()) and not 'la nico' in text.lower():
 					reply(stk='BQADBAADGwADTyaZAjUU-thrRuh9Ag')
 				if 'pita' in text.lower():
-					reply('Pita è sfigata :(')
+					reply('Pita è sfigata ' + u'\U0001F62D'.encode('utf-8'))
 				if 'gestione' in text.lower() or 'gestitevi' in text.lower():
 					reply(stk='BQADBAADHQADTyaZAiyn9ScUMAh6Ag')
 				if 'parisi' in text.lower() or ( 'st' in text.lower() and 'bene' in text.lower() ):
@@ -230,13 +230,13 @@ class WebhookHandler(webapp2.RequestHandler):
 				if text.lower() == 'suggerimento':
 					reply('Per suggerire scrivi qualcosa dopo la parola \'suggerimento\'')
 				if 'mappa' in text.lower() or ('mappa' in text.lower() and 'policlinico' in text.lower()):
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/mappa.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/mappa.jpg').read())
 				if 'erasmus' in text.lower():
 					reply('Tutte le info riguardanti il programma Erasmus per gli studenti Uniba sono disponibili sul sito web http://uniba.llpmanager.it/studenti/')
 				if 'segreteria' in text.lower():
 					reply('La segreteria è aperta dal Lunedi al Venerdi mattina dalle 10 alle 12. Martedi e Giovedi pomeriggio dalle 15 alle 17.')
 				if 'rata' in text.lower() or 'rate' in text.lower() or ('scade' in text.lower() and 'rat' in text.lower()):
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/rate.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/rate.jpg').read())
 				if ('mail' in text.lower() and 'prof' in text.lower()) or 'ricevimento' in text.lower():
 					reply('Questo sito riporta indirizzi e-mail e curricula (cliccando sul nome) dei professori.\n http://www.medicina.uniba.it/personale/index.jsp \nSolitamente nel curriculum è riportato l\'orario di ricevimento abituale.')
 				if 'ade' in (text.lower()).split() or 'ade?' in (text.lower()).split() or 'pezzolla' in text.lower() or 'carrat' in text.lower():
@@ -245,26 +245,27 @@ class WebhookHandler(webapp2.RequestHandler):
 					reply('Segui questo link per tutta la modulistica http://goo.gl/FnFD0C')
 				if 'cus' in text.lower().split():
 					reply('Il CUS, Centro Universitario Sportivo, offre numerosi vantaggi per gli studenti dell\'Uniba. L\'iscrizione è di 20€ (15€ se è la tua prima iscrizione). Queste le convenzioni:')
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/cus.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/cus.jpg').read())
 				if 'aula' in text.lower() and 'studio' in text.lower() or ('sal' in text.lower() and 'lettur' in text.lower()):
 					reply('Gli orari di apertura dell\'aula studio del polinfunzionale sono quelli indicati nell\'immagine seguente.\nL\'aula studio del dipartimento di Biochimica è aperta dalle 8.15 alle 18.00.\nPer la biblioteca centrale digita \'biblioteca\'')
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/polifunzionale.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/polifunzionale.jpg').read())
 				if 'biblioteca' in text.lower():
 					reply('La biblioteca centrale è aperta lun-gio 8.30-20.00. Ven 8.30-19.00.\nPer il servizio prestito lun-ven 8.30-17.15.\nPer l\'aula studio digita \'aula studio\'')
 				if 'propedeuticit' in text.lower() or 'propedeutic' in text.lower():
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/propedeut.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/propedeut.jpg').read())
 				if 'nodbis' in text.lower() or 'laurea' in text.lower():
 					reply('Leggi qui il regolamento nodbis http://goo.gl/bkCtjD')
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/nodbis.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/nodbis.jpg').read())
 				if 'progress' in text.lower() and 'test' in text.lower():
 					reply('Il progress test è una prova nazionale che consiste in due quiz a risposta multipla, ognuno da 150 domande (150 di area pre-clinica e 150 di area clinica).\n\nLa frequenza della giornata è assegnata purché lo studente consegni le risposte dopo almeno 45 minuti dall\'inizio di ogni prova. Se lo studente supera il punteggio medio del proprio anno, valutato sulla base dei test svolti negli anni precedenti, sarà assegnato un punto aggiuntivo nella media dei voti per il calcolo del voto di presentazione alla seduta di Laurea.\n(*nessun voto sarà formalmente modificato)')
 				if 'adisu' in text.lower() or ('borsa' in text.lower() and 'studio' in text.lower()) or 'bando' in (text.lower()).split():
-					reply('BANDO ADISU 2015/16: http://goo.gl/GedV1r \nSCADENZE: http://goo.gl/et2bdc \n\nL\'ufficio in Via Giustino Fortunato è aperto dal lunedì al venerdì dalle 9 alle 12. Il martedì e il giovedì anche il pomeriggio dalle 15 alle 16.')
+					reply('BANDO ADISU 2015/16: http://goo.gl/Py2HYR \nSCADENZE: http://goo.gl/nTikvg \n\nL\'ufficio in Via Giustino Fortunato è aperto dal lunedì al venerdì dalle 9 alle 12. Il martedì e il giovedì anche il pomeriggio dalle 15 alle 16.')
 				if 'tasse' in text.lower().split() or 'immatricolazion' in text.lower():
-					reply('PAGA PIAGA!\nSe cerchi il simulatore tasse by StudentiPer segui questo link: http://goo.gl/g6IRLp')
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/rate.jpg').read())
+					reply('PAGA PIAGA!\nSe cerchi il simulatore tasse del sito UNIBA segui questo link: https://csi.ict.uniba.it/simulatoretasse')
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/rate.jpg').read())
 				if 'iscrizion' in text.lower() or 'sbarrament' in text.lower():
-					reply('Per iscriversi ad anni successivi occorrono:\n - 16 CFU per il secondo anno\n - 40 CFU per il terzo anno\n - 80 CFU per il quarto anno\n - Fisiologia e Patologia per il quinto anno\n - Anatomia Patologica per il sesto anno')
+					reply('Per iscriversi ad anni successivi occorrono i seguenti requisiti entro Febbraio 2017')
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/sbarramenti.png').read())
 				if 'simulatore' in text.lower():
 					reply('Per il simulatore tasse by StudentiPer segui questo link: http://goo.gl/g6IRLp')
 				if 'isee' in text.lower() or 'iseu' in text.lower():
@@ -276,41 +277,41 @@ class WebhookHandler(webapp2.RequestHandler):
 				if 'materiale' in text.lower() and 'didattico' in text.lower():
 					reply('Segui questo link per l\'archivio su Drive (secondo anno LZ) https://goo.gl/xGceWn')
 				if text == '/I_AK' or text == '/I_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/1AK.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/1AK.jpg').read())
 				if text == '/I_LZ' or text == '/I_LZ@sarcinellobot':
 					reply('Orari 1LZ http://goo.gl/GMHk02')
 				if text == '/II_AK' or text == '/II_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/2AK.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2AK.jpg').read())
 				if text == '/II_LZ' or text == '/II_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/2LZ.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2LZ.jpg').read())
 					reply('#‎PATOLOGIA‬\nIl corso di fisiologia è terminato. Abbiamo chiesto alla prof.Montemurro e alla prof. Boccarelli di anticipare le loro lezioni; lunedì 6 faremo lezione dalle 9 alle 12, martedì 7 dalle 11 alle 13 e mercoledì 8 dalle 10 alle 13. Saranno le ultime lezioni, cercate di essere presenti così concludiamo senza problemi\n‪\n#‎INGLESE\nLa prof. Loiacono farà l\'ultima lezione lunedì 30 dalle 11 alle 13.\n‪\n#‎StudentiPer‬')
 				if text == '/III_AK' or text == '/III_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/3AK.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3AK.jpg').read())
 				if text == '/III_LZ' or text == '/III_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/3LZ.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3LZ.jpg').read())
 				if text == '/IV_AK' or text == '/IV_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/4AK.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4AK.jpg').read())
 				if text == '/IV_LZ' or text == '/IV_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/4LZ.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4LZ.jpg').read())
 				if text == '/V_AK' or text == '/V_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/5AK.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5AK.jpg').read())
 				if text == '/V_LZ' or text == '/V_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/5LZ.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5LZ.jpg').read())
 				if text.lower() == 'anatomia' or ('anatomia' in text.lower() and 'appell' in text.lower()):
 					reply('Incubo!')
 				if 'appelli' in text.lower() or 'appello' in text.lower():
 					reply('Cerchi gli appelli per quale anno? Ora disponibili:\n /esami_I \n /esami_II \n /esami_III')
 				if text == '/esami_I' or text == '/esami_I@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/esami1.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/esami1.jpg').read())
 				if text == '/esami_II' or text == '/esami_II@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/esami2.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/esami2.jpg').read())
 				if text == '/esami_III' or text == '/esami_III@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Media/Foto/esami3.jpg').read())
+					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/esami3.jpg').read())
 				if 'programmi' in text.lower():
 					reply('Segui questo link per tutti i programmi http://goo.gl/v69OQt')
 				if 'programm' in text.lower() and 'umane' in text.lower():
 					reply('Segui questo link per il programma di Scienze Umane http://goo.gl/6ZUh5W')
-				if 'programm' in text.lower() and ( 'biologia' in text.lower() or 'genetica' in text.lower() ):
+				if 'programm' in text.lower() and ( 'biologia' in text.lower() or 'genetica' in text.lower() ) and 'micro' not in text.lower():
 					reply('Segui questo link per il programma di Biologia e Genetica http://goo.gl/h8TWlc')
 				if 'programm' in text.lower() and ( 'fisica' in text.lower() or 'informatica' in text.lower() ):
 					reply('Segui questo link per il programma di Fisica e Informatica http://goo.gl/VV8PSG')
@@ -322,6 +323,8 @@ class WebhookHandler(webapp2.RequestHandler):
 					reply('Segui questo link per il programma di Citologia, Istologia ed Embriologia http://goo.gl/NGG8XD')
 				if 'programm' in text.lower() and ( 'metodologi' in text.lower() or 'semeiotica' in text.lower() ):
 					reply('Segui questo link per il programma di Metodologie I anno http://goo.gl/wZ8Bqu e di Metodologia e Semeiotica Medico-Chirurgica III anno http://goo.gl/RnC35a')
+				if 'programm' in text.lower() and 'micro' in text.lower():
+					reply('Ecco il programma di microbiologia by Alfonso: http://goo.gl/4sJLdp')
 				if 'programm' in text.lower() and 'anatomia' in text.lower() and not 'patologica' in text.lower():
 					reply('Segui questo link per il programma di Anatomia http://goo.gl/CQgtfm')
 				if 'sito' in text.lower() and ('saccia' in text.lower() or 'anatomia' in text.lower()):

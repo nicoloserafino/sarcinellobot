@@ -273,30 +273,30 @@ class WebhookHandler(webapp2.RequestHandler):
 				if 'frequenz' in text.lower() or 'intermedi' in text.lower() or 'badge' in text.lower():
 					reply('Il badge non sarà utilizzato nemmeno quest\'anno (ascolta l\'audio).\nLe frequenze delle prove intermedie non sono richieste per sostenere l\'esame. L\'ex primo anno ha solo quelle di citologia, ma per un errore della segreteria.')
 				if 'calendario' in text.lower() or ('orari' in text.lower() and not 'segreteria' in text.lower() and not 'ricevimento' in text.lower() and not 'biblioteca' in text.lower() and not 'aula' in text.lower()):
-					reply('Per quale anno? Ora disponibili:\n /I_AK \n /I_LZ \n /II_AK \n /II_LZ \n /III_AK \n /III_LZ \n /IV_AK \n /IV_LZ \n /V_AK \n /V_LZ')
+					reply('Gli orari per l\'A.A. 2016-2017 non sono ancora disponibili')
+#					reply('Per quale anno? Ora disponibili:\n /I_AK \n /I_LZ \n /II_AK \n /II_LZ \n /III_AK \n /III_LZ \n /IV_AK \n /IV_LZ \n /V_AK \n /V_LZ')
 				if 'materiale' in text.lower() and 'didattico' in text.lower():
 					reply('Segui questo link per l\'archivio su Drive (secondo anno LZ) https://goo.gl/xGceWn')
-				if text == '/I_AK' or text == '/I_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/1AK.jpg').read())
-				if text == '/I_LZ' or text == '/I_LZ@sarcinellobot':
-					reply('Orari 1LZ http://goo.gl/GMHk02')
-				if text == '/II_AK' or text == '/II_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2AK.jpg').read())
-				if text == '/II_LZ' or text == '/II_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2LZ.jpg').read())
-					reply('#‎PATOLOGIA‬\nIl corso di fisiologia è terminato. Abbiamo chiesto alla prof.Montemurro e alla prof. Boccarelli di anticipare le loro lezioni; lunedì 6 faremo lezione dalle 9 alle 12, martedì 7 dalle 11 alle 13 e mercoledì 8 dalle 10 alle 13. Saranno le ultime lezioni, cercate di essere presenti così concludiamo senza problemi\n‪\n#‎INGLESE\nLa prof. Loiacono farà l\'ultima lezione lunedì 30 dalle 11 alle 13.\n‪\n#‎StudentiPer‬')
-				if text == '/III_AK' or text == '/III_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3AK.jpg').read())
-				if text == '/III_LZ' or text == '/III_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3LZ.jpg').read())
-				if text == '/IV_AK' or text == '/IV_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4AK.jpg').read())
-				if text == '/IV_LZ' or text == '/IV_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4LZ.jpg').read())
-				if text == '/V_AK' or text == '/V_AK@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5AK.jpg').read())
-				if text == '/V_LZ' or text == '/V_LZ@sarcinellobot':
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5LZ.jpg').read())
+#				if text == '/I_AK' or text == '/I_AK@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/1AK.jpg').read())
+#				if text == '/I_LZ' or text == '/I_LZ@sarcinellobot':
+#					reply('Orari 1LZ http://goo.gl/GMHk02')
+#				if text == '/II_AK' or text == '/II_AK@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2AK.jpg').read())
+#				if text == '/II_LZ' or text == '/II_LZ@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2LZ.jpg').read())
+#				if text == '/III_AK' or text == '/III_AK@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3AK.jpg').read())
+#				if text == '/III_LZ' or text == '/III_LZ@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3LZ.jpg').read())
+#				if text == '/IV_AK' or text == '/IV_AK@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4AK.jpg').read())
+#				if text == '/IV_LZ' or text == '/IV_LZ@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4LZ.jpg').read())
+#				if text == '/V_AK' or text == '/V_AK@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5AK.jpg').read())
+#				if text == '/V_LZ' or text == '/V_LZ@sarcinellobot':
+#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5LZ.jpg').read())
 				if text.lower() == 'anatomia' or ('anatomia' in text.lower() and 'appell' in text.lower()):
 					reply('Incubo!')
 				if 'appelli' in text.lower() or 'appello' in text.lower():

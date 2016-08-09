@@ -250,7 +250,7 @@ class WebhookHandler(webapp2.RequestHandler):
 					reply('Gli orari di apertura dell\'aula studio del polinfunzionale sono quelli indicati nell\'immagine seguente.\nL\'aula studio del dipartimento di Biochimica è aperta dalle 8.15 alle 18.00.\nPer la biblioteca centrale digita \'biblioteca\'')
 					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/polifunzionale.jpg').read())
 				if 'biblioteca' in text.lower():
-					reply('La biblioteca centrale è aperta lun-gio 8.30-20.00. Ven 8.30-19.00.\nPer il servizio prestito lun-ven 8.30-17.15.\nPer l\'aula studio digita \'aula studio\'')
+					reply('Orari biblioteca centrale: http://goo.gl/948hLn\nPer l\'aula studio digita \'aula studio\'')
 				if 'propedeuticit' in text.lower() or 'propedeutic' in text.lower():
 					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/propedeut.jpg').read())
 				if 'nodbis' in text.lower() or 'laurea' in text.lower():

@@ -96,6 +96,7 @@ class WebhookHandler(webapp2.RequestHandler):
                     'chat_id': str(chat_id),
                     'text': msg,
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             elif img:
                 resp = multipart.post_multipart(BASE_URL + 'sendPhoto', [
@@ -123,42 +124,49 @@ class WebhookHandler(webapp2.RequestHandler):
                     'chat_id': fw,
                     'from_chat_id': str(chat_id),
                     'message_id': str(message_id),
+                    'parse_mode': 'HTML',
                 })).read()
             elif chat:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': '-12787170',
                     'text': chat.replace("=PBZZ=", "").encode('utf-8'),
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             elif chat1:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': '-36729866',
                     'text': chat1.replace("=STUDENTIPER=", "").encode('utf-8'),
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             elif chat2:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': '-12604594',
                     'text': chat2.replace("=LAPA=", "").encode('utf-8'),
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             elif chat3:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': '-7284886',
                     'text': chat3.replace("=3LZ=", "").encode('utf-8'),
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             elif chat4:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': '-23982686',
                     'text': chat4.replace("=1AK=", "").encode('utf-8'),
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             elif chat5:
                 resp = urllib2.urlopen(BASE_URL + 'sendMessage', urllib.urlencode({
                     'chat_id': '-18336711',
                     'text': chat5.replace("=1LZ=", "").encode('utf-8'),
                     'disable_web_page_preview': 'true',
+                    'parse_mode': 'HTML',
                 })).read()
             else:
                 logging.error('no msg or img specified')
@@ -169,13 +177,13 @@ class WebhookHandler(webapp2.RequestHandler):
 
         if text.startswith('/'):
             if text.lower() == '/start' or text.lower() == '/start@sarcinellobot':
-                reply('Sarcinello attivato.\nInvia /comandi per elencare le funzioni disponibili.\nPer contattare mio padre: @nicoserafino')
+                reply('<b>Sarcinello</b> attivato.\nInvia /comandi per elencare le funzioni disponibili.\nPer contattare mio padre: @nicoserafino')
                 setEnabled(chat_id, True)
             elif text.lower() == '/stop' or text.lower() == '/stop@sarcinellobot':
-                reply('Sarcinello disattivato.\nInvia /start per attivarlo.')
+                reply('<b>Sarcinello</b> disattivato.\nInvia /start per attivarlo.')
                 setEnabled(chat_id, False)
         if text.lower() == '/comandi' or text.lower() == '/comandi@sarcinellobot':
-            reply('Ciao! sono il Sarcinello. Per contattare mio padre: @nicoserafino\n\n/start per attivare il Sarcinello\n/stop per disattivarlo\n\nsuggerimento - Suggeriscimi una funzione\n\nsegreteria\n\naula studio - per gli orari delle aule studio\n\nbiblioteca - per gli orari della biblioteca\n\nmappa del policlinico\n\nade, pezzolla, carratù\n\ntasse, iscrizioni, simulatore\n\nscandeza rate\n\nisee, iseu\n\nadisu, bando\n\nfrequenze, badge\n\npropedeuticità\n\nmodulistica\n\norari, calendario\n\nprogrammi\n\n appelli\n\n programma di [disciplina] - ad esempio "programma di chimica"\n\nnodbis, laurea\n\nprogress test')
+            reply('Ciao! sono il <b>Sarcinello</b>. Per contattare mio padre: @nicoserafino\n\n/start per attivare il Sarcinello\n/stop per disattivarlo\n\nsuggerimento - Suggeriscimi una funzione\n\nsegreteria\n\naula studio - per gli orari delle aule studio\n\nbiblioteca - per gli orari della biblioteca\n\nmappa del policlinico\n\nade, pezzolla, carratù\n\ntasse, iscrizioni, simulatore\n\nscandeza rate\n\nisee, iseu\n\nadisu, bando\n\nfrequenze, badge\n\npropedeuticità\n\nmodulistica\n\norari, calendario\n\nprogrammi\n\n appelli\n\n programma di [disciplina] - ad esempio "programma di chimica"\n\nnodbis, laurea\n\nprogress test')
 
         # CUSTOMIZE FROM HERE 
 		# Testo			reply('testo')
@@ -240,7 +248,7 @@ class WebhookHandler(webapp2.RequestHandler):
 				if ('mail' in text.lower() and 'prof' in text.lower()) or 'ricevimento' in text.lower():
 					reply('Questo sito riporta indirizzi e-mail e curricula (cliccando sul nome) dei professori.\n http://www.medicina.uniba.it/personale/index.jsp \nSolitamente nel curriculum è riportato l\'orario di ricevimento abituale.')
 				if 'ade' in (text.lower()).split() or 'ade?' in (text.lower()).split() or 'pezzolla' in text.lower() or 'carrat' in text.lower():
-					reply('Le ADE sono attività didattiche elettive, cioè seminari e convegni che si tengono al policlinico in orari che non interferiscano con l\'attività didattica ordinaria. Con la partecipazione a questi eventi si ottengono attestati e CFU (spesso 0.3CFU a sessione). Raggiunto il numero di CFU in ADE previsti dal piano di studio per l\'anno in corso, gli attestati vanno consegnati alle Prof. Carratù (AK) o Pezzolla (LZ) come segue.\n\nPER GLI AK\nLa prof.ssa Carratù riceve lunedì e mercoledì dalle 9.30 alle 12.30 primo piano degli istituti biologici.\n\nPER GLI LZ\nLa prof.ssa Pezzolla riceve il 5 luglio e da settembre il martedi dalle 10 alle 12 al quarto piano del padiglione Asclepios (ingresso Pronto Soccorso).\n\nIl modulo ADE va consegnato alle professoresse entro il 30 settembre con gli attestati originali in allegato. Successivamente il solo modulo, privo degli attestati, va ritirato (AK il giovedì, LZ il martedì della settimana successiva con lo stesso orario)e consegnato in segreteria entro il 31 ottobre.')
+					reply('Le ADE sono attività didattiche elettive, cioè seminari e convegni che si tengono al policlinico in orari che non interferiscano con l\'attività didattica ordinaria. Con la partecipazione a questi eventi si ottengono attestati e CFU (spesso 0.3CFU a sessione). Raggiunto il numero di CFU in ADE previsti dal piano di studio per l\'anno in corso, gli attestati vanno consegnati alle Prof. Carratù (AK) o Pezzolla (LZ) come segue.\n\nPER GLI AK\nLa prof.ssa Carratù riceve lunedì e mercoledì dalle 9.30 alle 12.30 primo piano degli istituti biologici.\n\nPER GLI LZ\nLa prof.ssa Pezzolla riceve dal 13 settembre settembre il martedi dalle 10 alle 12 al quarto piano del padiglione Asclepios (ingresso Pronto Soccorso).\n\nIl modulo ADE va consegnato alle professoresse entro il 30 settembre con gli attestati originali in allegato. Successivamente il solo modulo, privo degli attestati, va ritirato (AK il giovedì, LZ il martedì della settimana successiva con lo stesso orario)e consegnato in segreteria entro il 31 ottobre.')
 				if 'moduli' in text.lower() or 'modulo' in text.lower():
 					reply('Segui questo link per tutta la modulistica http://goo.gl/FnFD0C')
 				if 'cus' in text.lower().split():
@@ -328,7 +336,7 @@ class WebhookHandler(webapp2.RequestHandler):
 				if 'programm' in text.lower() and 'anatomia' in text.lower() and not 'patologica' in text.lower():
 					reply('Segui questo link per il programma di Anatomia http://goo.gl/CQgtfm')
 				if 'sito' in text.lower() and ('saccia' in text.lower() or 'anatomia' in text.lower()):
-					reply('Ecco il sito del Prof. Saccia:\nhttp://www.matsac.it/anatomia_1_med/home.htm')
+					reply('Ecco il sito del Prof. Saccia:\nhttp://www.matsac.it/anatomia_1_med/')
 				if 'programm' in text.lower() and 'fisiologia' in text.lower():
 					reply('Segui questo link per il programma di Fisiologia http://goo.gl/JuOsvy')
 				if 'programm' in text.lower() and ('patologia' in text.lower() or 'immunologia' in text.lower()):

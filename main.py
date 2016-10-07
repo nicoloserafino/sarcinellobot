@@ -270,7 +270,7 @@ class WebhookHandler(webapp2.RequestHandler):
 					reply('BANDO ADISU 2015/16: http://goo.gl/Py2HYR \nSCADENZE: http://goo.gl/nTikvg \n\nL\'ufficio in Via Giustino Fortunato è aperto dal lunedì al venerdì dalle 9 alle 12. Il martedì e il giovedì anche il pomeriggio dalle 15 alle 16.')
 				if 'tasse' in text.lower().split() or 'immatricolazion' in text.lower():
 					reply('PAGA PIAGA!\nSe cerchi il simulatore tasse del sito UNIBA segui questo link: https://csi.ict.uniba.it/simulatoretasse')
-					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/rate.jpg').read())
+					reply('II rata prorogata al 20 ottobre.\nIII rata rateizzata 50% entro il 20 novembre e 50% entro il 28 febbraio.\nI rata 2016/17 entro il 20 dicembre.')
 				if 'iscrizion' in text.lower() or 'sbarrament' in text.lower():
 					reply('Per iscriversi ad anni successivi occorrono i seguenti requisiti entro Febbraio 2017')
 					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/sbarramenti.png').read())
@@ -281,30 +281,38 @@ class WebhookHandler(webapp2.RequestHandler):
 				if 'frequenz' in text.lower() or 'intermedi' in text.lower() or 'badge' in text.lower():
 					reply('Il badge non sarà utilizzato nemmeno quest\'anno (ascolta l\'audio).\nLe frequenze delle prove intermedie non sono richieste per sostenere l\'esame. L\'ex primo anno ha solo quelle di citologia, ma per un errore della segreteria.')
 				if 'calendario' in text.lower() or ('orari' in text.lower() and not 'segreteria' in text.lower() and not 'ricevimento' in text.lower() and not 'biblioteca' in text.lower() and not 'aula' in text.lower()):
-					reply('Gli orari per l\'A.A. 2016-2017 non sono ancora disponibili')
-#					reply('Per quale anno? Ora disponibili:\n /I_AK \n /I_LZ \n /II_AK \n /II_LZ \n /III_AK \n /III_LZ \n /IV_AK \n /IV_LZ \n /V_AK \n /V_LZ')
+#					reply('Gli orari del secondo semestre A.A. 2016-2017 non sono ancora disponibili')
+					reply('Per quale anno? Ora disponibili:\n /I_AK \n /I_LZ \n /II_AK \n /II_LZ \n /III_AK \n /III_LAPA \n /III_PBZZ \n /IV_AK \n /IV_LZ \n /V_AK \n /V_LZ')
 				if 'materiale' in text.lower() and 'didattico' in text.lower():
 					reply('Segui questo link per l\'archivio su Drive (secondo anno LZ) https://goo.gl/xGceWn')
-#				if text == '/I_AK' or text == '/I_AK@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/1AK.jpg').read())
-#				if text == '/I_LZ' or text == '/I_LZ@sarcinellobot':
-#					reply('Orari 1LZ http://goo.gl/GMHk02')
-#				if text == '/II_AK' or text == '/II_AK@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2AK.jpg').read())
-#				if text == '/II_LZ' or text == '/II_LZ@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/2LZ.jpg').read())
-#				if text == '/III_AK' or text == '/III_AK@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3AK.jpg').read())
-#				if text == '/III_LZ' or text == '/III_LZ@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/3LZ.jpg').read())
-#				if text == '/IV_AK' or text == '/IV_AK@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4AK.jpg').read())
-#				if text == '/IV_LZ' or text == '/IV_LZ@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/4LZ.jpg').read())
-#				if text == '/V_AK' or text == '/V_AK@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5AK.jpg').read())
-#				if text == '/V_LZ' or text == '/V_LZ@sarcinellobot':
-#					reply(img=urllib2.urlopen('http://creop.altervista.org/Sarcinellobot/Media/Foto/5LZ.jpg').read())
+				if text == '/I_AK' or text == '/I_AK@sarcinellobot':
+					reply('Orari I_AK: https://goo.gl/PX1DFN')
+				if text == '/I_LZ' or text == '/I_LZ@sarcinellobot':
+					reply('Orari I_LZ: https://goo.gl/3Ug8Wc')
+				if text == '/II_AK' or text == '/II_AK@sarcinellobot':
+					reply('Orari II_AK: https://goo.gl/8hhgls')
+				if text == '/II_LZ' or text == '/II_LZ@sarcinellobot':
+					reply('Orari II_LZ: https://goo.gl/eTQ3z2')
+				if text == '/III_AK-A' or text == '/III_AK-A@sarcinellobot':
+					reply('Orari III_AK-A: https://goo.gl/JTTauS')
+				if text == '/III_AK-B' or text == '/III_AK-B@sarcinellobot':
+					reply('Orari III_AK-B: https://goo.gl/sdPumR')
+				if text == '/III_LAPA' or text == '/III_LAPA@sarcinellobot':
+					reply('Orari III_LAPA: https://goo.gl/TMyCTV')
+				if text == '/III_PBZZ' or text == '/III_PBZZ@sarcinellobot':
+					reply('Orari III_PBZZ: https://goo.gl/pI58BE')
+				if text == '/IV_AK' or text == '/IV_AK@sarcinellobot':
+					reply('Orari IV_AK: https://goo.gl/vVsZSG')
+				if text == '/IV_LZ' or text == '/IV_LZ@sarcinellobot':
+					reply('Orari IV_LZ: https://goo.gl/YFAazr')
+				if text == '/V_AK' or text == '/V_AK@sarcinellobot':
+					reply('Orari V_AK: https://goo.gl/PkJJ2e')
+				if text == '/V_LZ' or text == '/V_LZ@sarcinellobot':
+					reply('Orari V_LZ: https://goo.gl/zFo4vk')
+				if text == '/VI_AK' or text == '/VI_AK@sarcinellobot':
+					reply('Orari VI_AK: https://goo.gl/bHYCr1')
+				if text == '/VI_LZ' or text == '/VI_LZ@sarcinellobot':
+					reply('Orari VI_LZ: https://goo.gl/AhfW47')
 				if text.lower() == 'anatomia' or ('anatomia' in text.lower() and 'appell' in text.lower()):
 					reply('Incubo!')
 				if 'appelli' in text.lower() or 'appello' in text.lower():
